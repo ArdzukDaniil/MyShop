@@ -3,12 +3,17 @@ from django.http import HttpResponse
 
 
 def index(request):
-    content = {
-        'title': 'Home',
-        'content': 'главная страница магазаина -HOME',
+    context = {
+        'title': 'Home - Главаная ',
+        'content': 'магазин мебели HOME',
     }
-    return render(request, 'main/index.html', content)
+    return render(request, 'main/index.html', context)
 
 
 def about(request):
-    return HttpResponse("About page")
+    context = {
+        'title': 'Home - О нас ',
+        'content': 'О нас',
+        'text_on_page':'Текст о том, поему этот магазин такой классный, и какой хороший товар.',
+    }
+    return render(request, 'main/about.html', context)
